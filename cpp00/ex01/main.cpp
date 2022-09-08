@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#define N 5
+#define N 8
 
 int main()
 {
@@ -39,9 +39,9 @@ int main()
 		}
 		else if (!input.compare("SEARCH"))
 		{
-			if (i == 0)
-				std::cout << "You have no friends >:(" << std::endl;
-			else {
+			//if (i == 0)
+			//	std::cout << "You have no friends >:(" << std::endl;
+			//else {
 				std::cout << "|  Index   |First name| Last name| Nickname |" << std::endl;
 				for (int j = 0 ; j < N ; ++j)
 					Contacs[j].getData(j);
@@ -50,8 +50,8 @@ int main()
 				if (std::isdigit(input[0]))
 					for (int j = 0; j < N ; ++j)
 						if (j == std::atoi(input.c_str()))
-							Contacs[j].getData(j);
-			}
+							Contacs[j].getInfo();
+			//}
 		}
 		else if (!input.compare("EXIT")){
 			std::cout << "EXIT OPTION" << std::endl;

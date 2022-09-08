@@ -40,9 +40,9 @@ void	PhoneBook::print10(std::string str){
 	std::string temp = str;
 	if (size < 10)
 	{
-		std::cout << str;
 		while (size++ < 10)
 			std::cout << " ";
+		std::cout << str;
 		std::cout << "|";
 	}
 	else if (size >= 10)
@@ -55,10 +55,18 @@ void	PhoneBook::print10(std::string str){
 void	PhoneBook::getData(int n){
 	if (PhoneBook::firstName.empty())
 		return ;
-	std::cout << "|" << n;
-	std::cout << "         |";
+	std::cout << "|";
+	std::cout << "         " << n << "|";
 	PhoneBook::print10(PhoneBook::firstName);
 	PhoneBook::print10(PhoneBook::lastName);
 	PhoneBook::print10(PhoneBook::nickname);
 	std::cout << std::endl;
+}
+
+void	PhoneBook::getInfo(void){
+	std::cout << "First Name:	" << PhoneBook::firstName << std::endl;
+	std::cout << "Last Name:	" << PhoneBook::lastName << std::endl;
+	std::cout << "Nickname:	" << PhoneBook::nickname << std::endl;
+	std::cout << "Phone Number:	" << PhoneBook::phone << std::endl;
+	std::cout << "Darkest Secret:	" << PhoneBook::darkestSecret << std::endl;
 }

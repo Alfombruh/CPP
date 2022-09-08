@@ -23,6 +23,7 @@ class PhoneBook
 		void	setDSecret(std::string str);
 		void	getData(int n);
 		void	print10(std::string str);
+		void	getInfo(void);
         PhoneBook(void);
         ~PhoneBook(void);
 };
