@@ -1,7 +1,7 @@
 NAME = Account
 CC = g++
-CFLAGS = -Werror -Wextra -Wall -fsanitize=address -g3
-FILES = main \
+CFLAGS = #-Werror -Wextra -Wall -fsanitize=address -g3
+FILES = tests \
 		Account 
 
 INCLUDES = Account.hpp
@@ -17,10 +17,10 @@ $(NAME): $(OBJS) $(INCLUDES)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
 
 clean:
-	rm -rfv $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rfv $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
