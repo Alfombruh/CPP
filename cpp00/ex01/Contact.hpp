@@ -1,11 +1,11 @@
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#ifndef CONTACT_H
+# define CONTACT_H
 
 #include <iostream>
 #include <string>
 #include <iomanip>
 
-class PhoneBook
+class Contact
 {
     private:
 		std::string		firstName;
@@ -24,8 +24,8 @@ class PhoneBook
 		void	getData(int n);
 		void	print10(std::string str);
 		void	getInfo(void);
-        PhoneBook(void);
-        ~PhoneBook(void);
+        Contact(void);
+        ~Contact(void);
 };
 
 #endif

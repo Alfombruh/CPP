@@ -2,9 +2,9 @@ NAME = PhoneBook
 CC = clang++
 CPPFLAGS = -Werror -Wall -Wextra -fsanitize=address -g3
 FILES = main \
-		PhoneBook
+		Contact
 
-INCLUDES = PhoneBook.hpp
+INCLUDES = Contact.hpp
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))
 
