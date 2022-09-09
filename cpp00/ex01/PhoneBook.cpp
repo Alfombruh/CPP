@@ -2,12 +2,12 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void){
-	std::cout << "PhoneBook constructor called" << std::endl;
+	//std::cout << "PhoneBook constructor called" << std::endl;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void){
-	std::cout << "PhoneBook destructor called" << std::endl;
+	//std::cout << "PhoneBook destructor called" << std::endl;
 	return ;
 }
 

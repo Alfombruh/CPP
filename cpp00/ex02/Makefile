@@ -1,6 +1,6 @@
 NAME = Account
-CC = g++
-CFLAGS = #-Werror -Wextra -Wall -fsanitize=address -g3
+CC = clang++
+CFLAGS = -Werror -Wextra -Wall -fsanitize=address -g3
 FILES = tests \
 		Account 
 
