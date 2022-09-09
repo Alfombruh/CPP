@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie(std::string str): _name(str){
-	//std::cout << "Zombie Constructor Called" << std::endl;
+Zombie::Zombie(void){
+	return ;
 }
 
 Zombie::~Zombie(void){
@@ -12,4 +12,8 @@ Zombie::~Zombie(void){
 
 void	Zombie::announce(void) const{
 	std::cout << "<" << this->_name << "> " << "BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setname(std::string name){
+	this->_name = name;
 }
