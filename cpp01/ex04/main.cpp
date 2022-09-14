@@ -1,18 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
-void	writeOutstream(std::string s1, std::string s2, std::ifstream ifs, std::ofstream  ofs){
-	return ;
+int	errorMessage(std::string str){
+	std::cout << "\e[1;91m";
+	std::cout << str << "\033[0;0m" << std::endl;
+	return 1;
 }
-//program that takes as argv a filename and 2 strings (not empty)
-//then it opens. filename.replace and replaces every occurrence of s1 with s2
-//std::string member fuctions are allowed except for replace
-//argv[1] == filename
-//argv[2] == s1
-//argv[3] == s2
+
 int main(int argc, char **argv){
 	if (argc != 4)
-		return 1;
+		return errorMessage("program must have 3 arguments");
 
 	std::string	filename = argv[1];
 	std::string	s1 = argv[2];
@@ -21,7 +19,7 @@ int main(int argc, char **argv){
 	std::string	str;
 
 	if (s1.empty() || s2.empty())
-		return 1;
+		return errorMessage("s1 & s2 shall not be empty");
 
 	for (std::string::size_type i = 0; i < filename.length(); ++i)
 		filename[i] = std::toupper(filename[i]);
@@ -30,25 +28,17 @@ int main(int argc, char **argv){
 	std::ifstream	ifs(argv[1]);
 	std::ofstream	ofs(filename);
 
-	writeOutstream(s1, s2, ifs, ofs);
-	/*char c;
 	size_t i = 0;
-	std::string aux;
-	while(ifs.get(c)){
-		if (c == s1[i] && i < s1.length()){
-			aux += c;
-			i++;
+	while (std::getline(ifs, temp)){
+		while ((i = temp.find(s1, i)) != (size_t) -1){
+			temp.erase(i, s1.length());
+			temp.insert(i, s2);
+			i += s1.length();
 		}
-		else if (i == s1.length()){
-			ofs << s2;
-			ofs << c;
-			i = 0;
-		}
-		else{
-			ofs << c;
-			i = 0;
-		}
-	}*/
+		i = 0;
+		ofs << temp;
+		ofs << std::endl;
+	}
 	ofs.close();
 	ifs.close();
 	return 0;
