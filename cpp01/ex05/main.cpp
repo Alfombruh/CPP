@@ -14,5 +14,8 @@ int main(){
 	std::cout << "ERROR:	";
 	Karen.complain("ERROR");
 	std::cout << std::endl;
+	std::cout << "WRONG INPUT:	";
+	Karen.complain("WRONG INPUT");
+	std::cout << std::endl;
 	return 0;
 }
