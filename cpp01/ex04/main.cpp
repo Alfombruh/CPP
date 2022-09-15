@@ -26,7 +26,11 @@ int main(int argc, char **argv){
 	filename += ".replace";
 
 	std::ifstream	ifs(argv[1]);
+	if (!ifs.is_open())
+		return errorMessage("couldn't open s1");
 	std::ofstream	ofs(filename);
+	if (!ofs.is_open())
+		return errorMessage("couldn't create s2");
 
 	size_t i = 0;
 	while (std::getline(ifs, temp)){

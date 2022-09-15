@@ -13,6 +13,6 @@ void	Weapon::setType(std::string str){
 	this->type = str;
 }
 
-std::string	Weapon::getType(void){
-	return this->type;
+std::string	Weapon::getType(void)const{
+	return (std::string const &)this->type;
 }
