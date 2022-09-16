@@ -10,8 +10,9 @@ Fixed::Fixed(int const n): i(n){
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float const x): f(x){
+Fixed::Fixed(float const x){
 	std::cout << "Float constructor called" << std::endl;
+	this->i = roundf(x * pow(2, this->f));
 }
 
 Fixed::Fixed(Fixed	const &copy){
@@ -25,12 +26,12 @@ Fixed::~Fixed(void){
 
 Fixed			&Fixed::operator=(Fixed const &r){
 	std::cout << "Assignation operator called" << std::endl;
-	this->i = r.getRawBits();
+	this->i = r.toInt();
 	return *this;
 }
 
 std::ostream	&operator<<(std::ostream &os, Fixed const &f){
-	os << f.toFloat();
+	os << f.toFloat();	
 	return os;
 };
 
@@ -45,9 +46,13 @@ void	Fixed::setRawBits(int const raw){
 }
 
 float	Fixed::toFloat(void)const{
-	return this->f;
+	float n;
+	std::cout << "value of i:	" << i << std::endl;
+	n = this->i/pow(2, this->f);
+	std::cout << "value of n:	" << n << std::endl;
+	return n;
 }
 
 int		Fixed::toInt(void)const{
-	return roundf(this->f);
+	return this->i;
 }
