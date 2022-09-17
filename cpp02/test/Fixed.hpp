@@ -15,6 +15,8 @@ class	Fixed{
 		~Fixed();
 
 		Fixed			&operator=(Fixed const &r);
+		
+		void	printBits(void)const;
 
 		void	setRawBits(uint8_t const raw);
 		int		getRawBits(void) const;

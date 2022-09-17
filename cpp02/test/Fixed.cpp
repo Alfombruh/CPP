@@ -8,10 +8,6 @@ Fixed::Fixed(void): i (0){
 
 Fixed::Fixed(uint8_t const n){
 	std::cout << "Int constructor called" << std::endl;
-	//for (int j = 7; j >= 0 ; j--){
-	//	std::cout << (((n >> j) & 1) ? 1 : 0);
-	//}
-	//std::cout << std::endl;
 	for (int i = 7; i > 3; i--){
 		this->i = n << i;
 	}
@@ -72,27 +68,22 @@ float	myPow(int exp, float base){
 	return base;
 }
 
+void	Fixed::printBits(void) const{	
+	std::cout << std::endl;
+	for (int j = 7; j >= 0 ; j--){
+		std::cout << (((this->i >> j) & 1) ? 1 : 0);
+	}
+	std::cout << std::endl;
+}
+
 float	Fixed::toFloat(void)const{
-//	std::cout << std::endl;
-//	for (int j = 7; j >= 0 ; j--){
-//		std::cout << (((this->i >> j) & 1) ? 1 : 0);
-//	}
-//	std::cout << std::endl;
 	float	x = 0;
 	int		k = 7;
 	for (int j = 3; j >= -4; j--){
 		if ((this->i >> k) & 1)
-		{
-			//std::cout << "1";
-			//std::cout << "j is:	" << j << std::endl;
 			x += (float)pow(2.0, j);
-			//std::cout << "x is:	" << x << std::endl;
-		}
-		//else
-			//std::cout << "0";
 		k--;
 	}
-	//std::cout << std::endl;
 	return x;
 }
 
