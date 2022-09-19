@@ -2,17 +2,18 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed(void): i (0){
+Fixed::Fixed(void): i (0 << f){
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int const n): i(n){
+Fixed::Fixed(int const n){
 	std::cout << "Int constructor called" << std::endl;
+	setRawBits(roundf(n * (1 << f)));
 }
 
 Fixed::Fixed(float const x){
 	std::cout << "Float constructor called" << std::endl;
-	this->i = roundf(x * pow(2, this->f));
+	setRawBits(roundf(x * (1 << f)));
 }
 
 Fixed::Fixed(Fixed	const &copy){
@@ -26,7 +27,7 @@ Fixed::~Fixed(void){
 
 Fixed			&Fixed::operator=(Fixed const &r){
 	std::cout << "Assignation operator called" << std::endl;
-	this->i = r.toInt();
+	this->setRawBits(r.getRawBits());
 	return *this;
 }
 
@@ -46,13 +47,9 @@ void	Fixed::setRawBits(int const raw){
 }
 
 float	Fixed::toFloat(void)const{
-	float n;
-	std::cout << "value of i:	" << i << std::endl;
-	n = this->i/pow(2, this->f);
-	std::cout << "value of n:	" << n << std::endl;
-	return n;
+	return (roundf(i) / (1 << f));
 }
 
 int		Fixed::toInt(void)const{
-	return this->i;
+	return (i / (1 << f));
 }

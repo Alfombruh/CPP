@@ -5,9 +5,8 @@
 
 class	Fixed{
 	private:
-		int	i; //the number of decimals | fixed point value
-		static const int f = 8;//fractional bits|binary point, the number of bits we have 0 1 2 4 8 16 32 64 128 | 1/4 1/2 1 2 4 8 16 32 
-		//4bytes, 3bytes of integer and 1byte of decimal
+		int	i;
+		static const int f = 8;	
 	public:
 		Fixed();
 		Fixed(const int n);
