@@ -21,12 +21,12 @@ Fixed::Fixed(float const x){
 }
 
 Fixed::Fixed(Fixed	const &copy){
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Fixed::~Fixed(void){
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 					//OPERATORS//
@@ -95,20 +95,38 @@ bool			Fixed::operator<=(Fixed const &r){
 		return false;
 }
 
-void		Fixed::operator++(Fixed const &r){
-	this = this + EPSILON;
+Fixed		Fixed::operator++(){
+	float	temp;
+	temp = this->toFloat() + 0.00390625;
+	Fixed ret(temp);
+	this->i = ret.i;
+	return ret;
 }
 
-void		Fixed::operator--(Fixed const &r){
-	this = this - EPSILON;
+Fixed		Fixed::operator--(){
+	float temp;
+	temp = this->toFloat() - 0.00390625;
+	Fixed ret(temp);
+	this->i = ret.i;
+	return ret;
 }
 
-void		Fixed::++operator(Fixed const &r){
-	this = this + EPSILON;
+Fixed		Fixed::operator++(int){
+	float	temp;
+	Fixed	ret(*this);
+	temp = this->toFloat() + 0.00390625;
+	Fixed	nw(temp);
+	this->i = nw.i;
+	return	ret;
 }
 
-void		Fixed::--operator(Fixed const &r){
-	this = this - EPSILON;
+Fixed		Fixed::operator--(int){
+	float	temp;
+	Fixed	ret(*this);
+	temp = this->toFloat() - 0.00390625;
+	Fixed	nw(temp);
+	this->i = nw.i;
+	return	ret;
 }
 
 std::ostream	&operator<<(std::ostream &os, Fixed const &f){
@@ -136,14 +154,14 @@ int			Fixed::toInt(void)const{
 	return (i / (1 << f));
 }
 
-static int	Fixed::min(Fixed &x, Fixed &y){
+Fixed	&Fixed::min(const Fixed &x, const Fixed &y){
 	if (x <= y)
 		return x;
 	else
 		return y;
 }
 
-static int	Fixed::max(Fixed &x, Fixed &y){
+Fixed	&Fixed::max(const Fixed &x, const Fixed &y){
 	if (x >= y)
 		return x;
 	else
