@@ -1,6 +1,6 @@
 NAME = Fixed
 CC = clang++
-CFLAGS = -Werror -Wall -Wextra -std=c++98 -fsanitize=address -g3
+CFLAGS = -Werror -Wall -Wextra -std=c++98 #-fsanitize=address -g3
 INCLUDE = Fixed.hpp
 FILES = main	\
 		Fixed	
@@ -19,7 +19,7 @@ clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) *.dSYM
 
 re: fclean all
 

@@ -5,90 +5,90 @@
 #define EPSILON 0.00390625
 
 					//CONSTRUCTORS && DESTRUCTOR//
-
 Fixed::Fixed(void): i (0 << f){
-	//std::cout << "Default constructor called" << std::endl;
+	return ;
 }
 
 Fixed::Fixed(int const n){
-	//std::cout << "Int constructor called" << std::endl;
 	setRawBits(roundf(n * (1 << f)));
 }
 
 Fixed::Fixed(float const x){
-	//std::cout << "Float constructor called" << std::endl;
 	setRawBits(roundf(x * (1 << f)));
 }
 
 Fixed::Fixed(Fixed	const &copy){
-//	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Fixed::~Fixed(void){
-	//std::cout << "Destructor called" << std::endl;
+	return ;
 }
 
 					//OPERATORS//
-
 Fixed			&Fixed::operator=(Fixed const &r){
-	//std::cout << "Assignation operator called" << std::endl;
 	this->setRawBits(r.getRawBits());
 	return *this;
 }
 
 Fixed			Fixed::operator+(Fixed const &r){
-	return i + r.i;
+	Fixed a;
+	a.setRawBits(getRawBits() + r.getRawBits());
+	return a;
 }
 
 Fixed			Fixed::operator-(Fixed const &r){
-	return i - r.i;
+	Fixed a;
+	a.setRawBits(getRawBits() - r.getRawBits());
+	return a;
 }
 
 Fixed			Fixed::operator*(Fixed const &r){
-	return i * r.i;
+	//return (toFloat() * r.toFloat());
+	return (((i>>f) * (r.i >> f)) * (1 >> 8));
 }
 
 Fixed			Fixed::operator/(Fixed const &r){
-	return i / r.i;
+	//return (toFloat() / r.toFloat());
+	return ((i << 8)/(r.i << 8));
 }
 
-bool			Fixed::operator==(Fixed const &r){
+bool			Fixed::operator==(Fixed const &r)const{
 	if (i == r.i)
 		return true;
 	else
 		return false;
 }
 
-bool			Fixed::operator!=(Fixed const &r){
+bool			Fixed::operator!=(Fixed const &r)const{
 	if (i == r.i)
 		return false;
 	else
 		return true;
 }
 
-bool			Fixed::operator>(Fixed const &r){
+bool			Fixed::operator>(Fixed const &r)const{
 	if (i > r.i)
 		return true;
 	else
 		return false;
 }
 
-bool			Fixed::operator<(Fixed const &r){
+bool			Fixed::operator<(Fixed const &r)const{
 	if (i < r.i)
 		return true;
 	else
 		return false;
 }
 
-bool			Fixed::operator>=(Fixed const &r){
+bool			Fixed::operator>=(Fixed const &r)const{
 	if (i >= r.i)
 		return true;
 	else
 		return false;
 }
 
-bool			Fixed::operator<=(Fixed const &r){
+bool			Fixed::operator<=(Fixed const &r)const{
 	if (i <= r.i)
 		return true;
 	else
@@ -135,14 +135,11 @@ std::ostream	&operator<<(std::ostream &os, Fixed const &f){
 };
 
 					//MEMBER FUNCTIONS//
-
 int			Fixed::getRawBits(void)const{
-	//std::cout << "getRawBits member function called" << std::endl;
 	return this->i;
 }
 
 void		Fixed::setRawBits(int const raw){
-	//std::cout << "setRawBits member function called" << std::endl;
 	this->i = raw;
 }
 
@@ -154,16 +151,30 @@ int			Fixed::toInt(void)const{
 	return (i / (1 << f));
 }
 
-Fixed	&Fixed::min(const Fixed &x, const Fixed &y){
+Fixed	&Fixed::min(Fixed &x, Fixed &y){
 	if (x <= y)
 		return x;
 	else
 		return y;
 }
 
-Fixed	&Fixed::max(const Fixed &x, const Fixed &y){
+Fixed	&Fixed::max(Fixed &x, Fixed &y){
 	if (x >= y)
 		return x;
 	else
 		return y;
+}
+
+Fixed	&Fixed::min(const Fixed &x, const Fixed &y){
+	if (x <= y)
+		return ((Fixed &)x);
+	else
+		return ((Fixed &)y);
+}
+
+Fixed	&Fixed::max(const Fixed &x, const Fixed &y){
+	if (x >= y)
+		return ((Fixed &)x);
+	else
+		return ((Fixed &)y);
 }
