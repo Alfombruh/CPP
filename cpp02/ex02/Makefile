@@ -1,6 +1,6 @@
 NAME = Fixed
 CC = clang++
-CFLAGS = -Werror -Wall -Wextra -std=c++98 #-fsanitize=address -g3
+CFLAGS = -Werror -Wall -Wextra -std=c++98 -fsanitize=address -g3
 INCLUDE = Fixed.hpp
 FILES = main	\
 		Fixed	
@@ -23,4 +23,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: .cpp.o all clean fclean re $(NAME)
+.PHONY: all clean fclean re .cpp.o
