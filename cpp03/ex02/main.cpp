@@ -1,18 +1,18 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(){
-	ScavTrap I;
-	ScavTrap Juan("Juan");
+	FragTrap I;
+	FragTrap Juan("Juan");
 	std::cout << std::endl;
-	I.guardGate();
+	I.attack("Paco Sanz");
 	I.takeDamage(20);
 	I.beRepaired(10);
-	I.attack("Paco Sanz");
+	I.highFivesGuys();
 	std::cout << std::endl;
-	Juan.guardGate();
-	Juan.takeDamage(50);
-	Juan.beRepaired(100);
 	Juan.attack("Ander Amorin Sanchez");
+	Juan.takeDamage(90);
+	Juan.beRepaired(120);
+	Juan.highFivesGuys();
 	std::cout << std::endl;
 	return 0;
 }

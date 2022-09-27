@@ -1,7 +1,7 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 			//(CONS & DES)TRUCTORS//
-ClapTrap::ClapTrap(void): Name("Illojuan"), HP(10), Energy(10), AD(0){
+ClapTrap::ClapTrap(void): Name("Lorem Ipsum"), HP(100), Energy(50), AD(20){
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 ClapTrap::ClapTrap(ClapTrap const &r){
@@ -11,6 +11,9 @@ ClapTrap::ClapTrap(ClapTrap const &r){
 ClapTrap::~ClapTrap(void){
 	std::cout << "ClapTrap default destructor called" << std::endl;
 }
+ClapTrap::ClapTrap(std::string s): Name(s), HP(100), Energy(50), AD(20){
+	std::cout << "ClapTrap default constructor called" << std::endl;
+}
 
 ClapTrap	&ClapTrap::operator=(ClapTrap const &r){
 	setName(r.getName());
@@ -19,11 +22,6 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &r){
 	setAD(r.getAD());
 	return *this;
 }
-
-void		ClapTrap::attack(std::string const &target){
-	std::cout << "ClapTrap " << this->Name << " attacks " << target << " , causing " << this->AD << " points of damage!" << std::endl;
-}
-
 
 void		ClapTrap::takeDamage(unsigned int	amount){
 	std::cout << "Claptrap " << this->Name << " takes " << amount << " points of damage" << std::endl;
@@ -39,8 +37,12 @@ void		ClapTrap::beRepaired(unsigned int amount){
 	if (this->HP < 0)
 		this->HP = 0;
 	std::cout << "ClapTrap " << this->Name << " has " << this->HP << " left" << std::endl;
+
 }
 
+void		ClapTrap::attack(std::string const &target){
+	std::cout << "ClapTrap " << this->Name << " attacks " << target << " , causing " << this->AD << " points of damage!" << std::endl;
+}
 			//SETTERS//
 void	ClapTrap::setName(std::string name){
 	this->Name = name;

@@ -7,5 +7,7 @@ int main(){
 	Jose.setName("Paco Sanz");
 	Jose.attack("Aingeru");
 	I.attack("Paco Sanz");
+	I.beRepaired(100);
+	I.takeDamage(50);
 	return 0;
 }
