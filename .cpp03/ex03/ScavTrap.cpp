@@ -6,10 +6,11 @@ ScavTrap::ScavTrap(){
 	std::cout << this->getName() << ": my pronouns are he/him" << std::endl;
 }
 ScavTrap::~ScavTrap(){
-	std::cout << "ScavTrap Default Desctructor Called. ScavTrap" << this->getName() << "seems happpy" << std::endl;
+	std::cout << "ScavTrap Default Desctructor Called. ScavTrap" << this->getName() << " seems happpy" << std::endl;
 }
-ScavTrap::ScavTrap(ScavTrap const &){
+ScavTrap::ScavTrap(ScavTrap const &r){
 	std::cout << "ScavTrap Copy Constructor Called. There is no ScavTrap like the OG one tho" << std::endl;
+	*this = r;
 }
 ScavTrap::ScavTrap(std::string name){
 	std::cout << "ScavTrap Naming Constructor Called" << std::endl;

@@ -1,6 +1,6 @@
 NAME = ScavTrap
 CC = clang++
-CFLAGS = -Werror -Wall -Wextra -fsanitize=address -g3
+CFLAGS = -Werror -Wall -Wextra -std=c++98 -pedantic -fsanitize=address -g3
 FILES = ClapTrap	\
 		ScavTrap	\
 		main
@@ -12,17 +12,17 @@ INCLUDES = ClapTrap.hpp	\
 all: $(NAME)
 
 .cpp.o: $(SRCS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(NAME): $(OBJS) $(INCLUDES)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+$(NAME): $(INCLUDES) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) *.dSYM
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all .cpp.o clean fclean re

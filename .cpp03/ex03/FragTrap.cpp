@@ -11,8 +11,9 @@ FragTrap::FragTrap(){
 FragTrap::~FragTrap(){
 	std::cout << "FragTrap Default Desctructor Called. Yes, that FragTrap is dying" << std::endl;
 }
-FragTrap::FragTrap(FragTrap const &){
+FragTrap::FragTrap(FragTrap const &r){
 	std::cout << "FragTrap Copy Constructor Called, no one is and OG anymore" << std::endl;
+	*this = r;
 }
 FragTrap::FragTrap(std::string name){
 	std::cout << "FragTrap Naming Constructor Called" << std::endl;
@@ -35,27 +36,3 @@ void		FragTrap::attack(std::string const &name){
 	std::cout << "FragTrap (" << this->getName() << ") unleashes all his anger on " << name << " dealing a unimaginable amount of damage" << std::endl;
 }
 
-void		FragTrap::takeDamage(unsigned int	amount){
-	if (amount < 0)
-		return ;
-	this->HP -= amount;
-	if (this->HP < 0)
-		std::cout << "FragTrap " << this->Name << " has unfortunately died. May it rest in peace" << std::endl;
-	std::cout << "FragTrap " << this->Name << " takes " << amount << " damage like a champ" << std::endl;
-	std::cout << this->Name << " *starts crying*" << std::endl;
-	std::cout << this->Name << "->HP = " << this->HP << std::endl;
-}
-
-void		FragTrap::beRepaired(unsigned int amount){
-	if (amount < 0)
-		return ;
-	if ((int)amount > this->Energy){
-		std::cout << "FragTrap " << this->Name << " cannot be repaired for more HP than Energy it has" << std::endl;
-		return ;
-	}
-	std::cout << "FragTrap " << this->Name << " is gonna be repaired for " << amount << " HP" << std::endl;
-	this->HP += amount;
-	this->Energy -= amount;
-	std::cout << this->Name << ":	Yummy!!!" << std::endl;
-	std::cout << this->Name << "->HP = " << this->HP << std::endl;
-}

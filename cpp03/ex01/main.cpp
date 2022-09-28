@@ -1,18 +1,13 @@
 #include "ScavTrap.hpp"
 
 int main(){
-	ScavTrap I;
-	ScavTrap Juan("Juan");
-	std::cout << std::endl;
-	I.guardGate();
+	ClapTrap I;
+	ClapTrap A("Aingeru Alvarez");
+	ClapTrap AA(A);
+
+	A.attack("Pablo Mateos");
+	AA.attack("Iñaki Solinis");
 	I.takeDamage(20);
-	I.beRepaired(10);
-	I.attack("Paco Sanz");
-	std::cout << std::endl;
-	Juan.guardGate();
-	Juan.takeDamage(50);
-	Juan.beRepaired(100);
-	Juan.attack("Ander Amorin Sanchez");
-	std::cout << std::endl;
+	I.beRepaired(6);
 	return 0;
 }

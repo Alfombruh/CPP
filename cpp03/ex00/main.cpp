@@ -2,12 +2,12 @@
 
 int main(){
 	ClapTrap I;
-	I.attack("Pedro");
-	ClapTrap Jose(I);
-	Jose.setName("Paco Sanz");
-	Jose.attack("Aingeru");
-	I.attack("Paco Sanz");
-	I.beRepaired(100);
-	I.takeDamage(50);
+	ClapTrap A("Aingeru Alvarez");
+	ClapTrap AA(A);
+
+	A.attack("Pablo Mateos");
+	AA.attack("Iñaki Solinis");
+	I.takeDamage(20);
+	I.beRepaired(6);
 	return 0;
 }
