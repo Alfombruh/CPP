@@ -1,7 +1,7 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(void): Name("Joxe Mari Payete"){
-	Energy = 50;
+	//Energy = 50;
 	std::cout << "DiamondTrap Default Constructor called. Dangerous individual being created..." << std::endl;
 }
 
@@ -11,7 +11,7 @@ DiamondTrap::~DiamondTrap(void){
 
 DiamondTrap::DiamondTrap(std::string const name, std::string const claptrap): Name(name){
 	ClapTrap::Name = claptrap;
-	Energy = 50;
+	//Energy = 50;
 	std::cout << "DiamondTrap Naming Constructor called, " << name << " has just been created, congrats on endangerin civilization" << std::endl;
 }
 

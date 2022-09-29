@@ -5,15 +5,15 @@ FILES = Animal \
 		Cat		\
 		Dog		\
 		main	
-SRCS = $(addsuffix, .cpp,$(FILES))
-OBJS = $(addsuffix, .o,$(FILES))
+SRCS = $(addsuffix .cpp,$(FILES))
+OBJS = $(addsuffix .o,$(FILES))
 INCLUDES = Animal.hpp \
 		   Cat.hpp	\
 		   Dog.hpp	\
 
 all: $(NAME)
 
-.c.o: $(SRCS)
+.cpp.o: $(SRCS)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS) $(INCLUDES)
@@ -27,4 +27,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all .c.o clean fclean re
+.PHONY: all .cpp.o clean fclean re

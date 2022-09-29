@@ -2,5 +2,9 @@
 
 class Dog: public Animal{
 	public:
-		void MakeSound();
+		Dog();
+		~Dog();
+		Dog(Dog const &);
+
+		Dog &operator=(Dog const &);
 };

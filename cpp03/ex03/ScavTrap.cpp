@@ -2,7 +2,7 @@
 
 ScavTrap::ScavTrap(void){
 	this->HitPoints = 100;
-	this->Energy = 50;
+	//this->Energy = 50;
 	this->Damage = 20;
 	std::cout << "ScavTrap Default Constructor, a gitanito is being born" << std::endl;
 }
