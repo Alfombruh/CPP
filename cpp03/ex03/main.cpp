@@ -10,6 +10,9 @@ int main(){
 	i.attack("antonio");
 	i.takeDamage(20);
 	p.takeDamage(70);
+	std::cout << std::endl;
+	i.highFivesGuys();
+	i.guardGate();
 
 	std::cout << std::endl;
 	std::cout << std::endl << "\e[1;97mDESTRUCTORS: \033[0;0m" << std::endl << std::endl;

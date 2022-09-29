@@ -9,5 +9,6 @@ int main(){
 	AA.attack("Iñaki Solinis");
 	I.takeDamage(20);
 	I.beRepaired(6);
+	I.guardGate();
 	return 0;
 }
