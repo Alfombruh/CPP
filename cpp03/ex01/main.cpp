@@ -1,9 +1,9 @@
 #include "ScavTrap.hpp"
 
 int main(){
-	ClapTrap I;
-	ClapTrap A("Aingeru Alvarez");
-	ClapTrap AA(A);
+	ScavTrap I;
+	ScavTrap A("Aingeru Alvarez");
+	ScavTrap AA(A);
 
 	A.attack("Pablo Mateos");
 	AA.attack("Iñaki Solinis");
