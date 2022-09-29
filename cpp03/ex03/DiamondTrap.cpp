@@ -22,6 +22,10 @@ DiamondTrap::DiamondTrap(DiamondTrap const &r){
 
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &r){
 	this->Name = r.Name;
+	this->ClapTrap::Name = r.ClapTrap::Name;
+	this->Energy = r.Energy;
+	this->Damage = r.Damage;
+	this->HitPoints = r.HitPoints;
 	return *this;
 }
 

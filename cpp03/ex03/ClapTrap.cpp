@@ -50,5 +50,5 @@ void		ClapTrap::beRepaired(unsigned int amount){
 	}
 	this->Energy -= amount;
 	this->HitPoints += amount;
-	std::cout << this->Name << " healed " << amount << " HitPoints, and has " << this->HitPoints << " HP left and " << this->Energy << "left" << std::endl;
+	std::cout << this->Name << " healed " << amount << " HitPoints, and has " << this->HitPoints << " HP left and " << this->Energy << " Energy left" << std::endl;
 }

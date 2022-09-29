@@ -13,6 +13,12 @@ int main(){
 	std::cout << std::endl;
 	i.highFivesGuys();
 	i.guardGate();
+	std::cout << std::endl;
+	std::cout << std::endl;
+	DiamondTrap Juan(p);
+	Juan.displayInfo();
+	Juan.beRepaired(40);
+	p.displayInfo();
 
 	std::cout << std::endl;
 	std::cout << std::endl << "\e[1;97mDESTRUCTORS: \033[0;0m" << std::endl << std::endl;
