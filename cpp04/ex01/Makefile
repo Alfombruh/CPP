@@ -1,19 +1,17 @@
-NAME = Polymorphism
+NAME = Brain
 CC = clang++
 CFLAGS = -Werror -Wall -Wextra #-fsanitize=address -g3
 FILES = Animal \
 		Cat		\
 		Dog		\
-		WrongAnimal	\
-		WrongCat	\
-		main	
+		Brain	\
+		main
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))
-INCLUDES = Animal.hpp \
-		   Cat.hpp	\
-		   Dog.hpp	\
-		   WrongAnimal.hpp	\
-		   WrongCat.hpp
+INCLUDES = Animal.hpp	\
+		   Cat.hpp		\
+		   Dog.hpp		\
+		   Brain.hpp
 
 all: $(NAME)
 
@@ -21,7 +19,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS) $(INCLUDES)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+	$(CC) $(CFLAGS)  $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf *.dSYM

@@ -2,10 +2,12 @@
 
 Cat::Cat(void){
 	type = "Cat";
+	brain = new Brain();
 	std::cout << "Cat Default Constructor Called" << std::endl;
 }
 
 Cat::~Cat(void){
+	delete brain;
 	std::cout << "Cat Default Destructor Called" << std::endl;
 }
 
@@ -15,7 +17,10 @@ Cat::Cat(Cat const &r){
 }
 
 Cat	&Cat::operator=(Cat const &r){
-	this->type = r.type;
+	brain = new Brain(*r.brain);
+	type = r.type;
+	std::cout << "&this->brain	= " << &brain << std::endl;
+	std::cout << "&r.brain	= " << &r.brain << std::endl;
 	return *this;
 }
 

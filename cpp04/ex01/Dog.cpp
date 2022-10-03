@@ -2,10 +2,12 @@
 
 Dog::Dog(void){
 	type = "Dog";
+	brain = new Brain();
 	std::cout << "Dog Default Constructor Called" << std::endl;
 }
 
 Dog::~Dog(void){
+	delete brain;
 	std::cout << "Dog Default Destructor Called" << std::endl;
 }
 
@@ -16,6 +18,7 @@ Dog::Dog(Dog const &r){
 
 Dog	&Dog::operator=(Dog const &r){
 	this->type = r.type;
+	this->brain = r.brain;
 	return *this;
 }
 
