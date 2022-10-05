@@ -1,23 +1,27 @@
 NAME = Interface
 CC = clang++
 CFLAGS = -Werror -Wall -Wextra -std=c++98 -fsanitize=address -g3
-FILE = AMateria \
-	   Ice	\
-	   Cure	\
-	   main
+FILES = main \
+		AMateria \
+	   	Character \
+	   	Ice	\
+	   	Cure	\
+	   	MateriaSource 
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))
-INCLUDES = AMateria \
-		   Ice	\
-		   Cure	
+INCLUDES =	AMateria.hpp \
+			MateriaSource.hpp \
+			Character \
+			Ice.hpp	\
+			Cure.hpp 
 
 all: $(NAME)
 
 .cpp.o: $(SRCS)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(NAME): $(OBJS) $(INCLUDES)
-	$(CC) $(CLAGS) $(OBJS) -o $@
+$(NAME): $(OBJS) 
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
 clean: 
 	rm -rf $(OBJS)

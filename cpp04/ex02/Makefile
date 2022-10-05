@@ -1,6 +1,6 @@
 NAME = Abstract
 CC = clang++
-CFLAGS = -Werror -Wall -Wextra #-fsanitize=address -g3
+CFLAGS = -Werror -Wall -Wextra#-fsanitize=address -g3
 FILES = Animal \
 		Cat		\
 		Dog		\

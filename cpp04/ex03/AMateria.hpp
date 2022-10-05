@@ -1,9 +1,14 @@
 #ifndef AMATERIA_H
 #define AMATERIA_H
 
-class Amateria{
+#include <iostream>
+#include "Character.hpp"
+
+class ICharacter;
+
+class AMateria{
 	protected:
-		//...
+		std::string type;
 	public:
 		AMateria();
 		~AMateria();
