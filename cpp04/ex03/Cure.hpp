@@ -4,8 +4,7 @@
 #include "AMateria.hpp"
 #include "Character.hpp"
 
-class Cure: public AMateria
-{
+class Cure: public AMateria{
 	public:
 		Cure();
 		~Cure();

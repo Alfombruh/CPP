@@ -2,6 +2,7 @@
 
 Cure::Cure(void){
 	std::cout << "Cure Default Constructor Called" << std::endl;
+	type = "cure";
 }
 
 Cure::~Cure(void){

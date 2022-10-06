@@ -6,8 +6,7 @@
 class MateriaSource: public IMateriaSource
 {
 	private:
-		AMateria *inventory[4];
-
+		AMateria	*src[2];
 	public:
 		MateriaSource();
 		~MateriaSource();

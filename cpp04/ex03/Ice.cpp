@@ -2,6 +2,7 @@
 
 Ice::Ice(void){
 	std::cout << "Ice Default Constructor Called" << std::endl;
+	type = "ice";
 }
 
 Ice::~Ice(void){
@@ -24,5 +25,5 @@ AMateria *Ice::clone()const{
 }
 
 void	Ice::use(ICharacter &target){
-	std::cout << "Ice: " << "\"*shoots an ice bolt at " << target.getName() << "*\"" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

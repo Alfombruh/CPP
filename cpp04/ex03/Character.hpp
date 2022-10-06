@@ -4,12 +4,14 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
+class MateriaSource;
 class AMateria;
 
-class Character: public ICharacter
-{
+class Character: public ICharacter{
 	private:
 		std::string name;
+		AMateria *inv[4];
+		int			materia_count;
 	public:
 		Character();
 		~Character();
