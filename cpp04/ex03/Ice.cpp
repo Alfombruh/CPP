@@ -1,16 +1,16 @@
 #include "Ice.hpp"
 
 Ice::Ice(void){
-	std::cout << "Ice Default Constructor Called" << std::endl;
+//	std::cout << "Ice Default Constructor Called" << std::endl;
 	type = "ice";
 }
 
 Ice::~Ice(void){
-	std::cout << "Ice Default Destructor Called" << std::endl;
+//	std::cout << "Ice Default Destructor Called" << std::endl;
 }
 
 Ice::Ice(Ice const &r){
-	std::cout << "Ice Copy Constructor Called" << std::endl;
+//	std::cout << "Ice Copy Constructor Called" << std::endl;
 	*this = r;
 }
 

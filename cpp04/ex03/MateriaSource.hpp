@@ -7,9 +7,11 @@ class MateriaSource: public IMateriaSource
 {
 	private:
 		AMateria	*src[2];
+		bool		ice;
+		bool		cure;
 	public:
 		MateriaSource();
-		~MateriaSource();
+		virtual ~MateriaSource();
 		MateriaSource(MateriaSource const &);
 
 		MateriaSource	&operator=(MateriaSource const &);

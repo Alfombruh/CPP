@@ -1,2 +1,0 @@
-make sure everything works as intender, REread the subject and look at possible errors
-PD: make another main to test things

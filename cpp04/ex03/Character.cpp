@@ -3,7 +3,7 @@
 #include "Cure.hpp"
 
 Character::Character(void){
-	std::cout << "Character Default Constructor Called" << std::endl;
+//	std::cout << "Character Default Constructor Called" << std::endl;
 	name = "Paco Sanz";
 	materia_count = 0;
 	this->inv[0] = NULL;
@@ -13,16 +13,16 @@ Character::Character(void){
 }
 
 Character::~Character(void){
-	std::cout << "Character Default Destructor Called" << std::endl;
+//	std::cout << "Character Default Destructor Called" << std::endl;
 }
 
 Character::Character(Character const &r){
-	std::cout << "Character Copy Constructor Called" << std::endl;
+//	std::cout << "Character Copy Constructor Called" << std::endl;
 	*this = r;
 }
 
 Character::Character(std::string const s){
-	std::cout << "Character Naming Constructor Called" << std::endl;
+//	std::cout << "Character Naming Constructor Called" << std::endl;
 	materia_count = 0;
 	name = s;
 }
@@ -46,6 +46,11 @@ void				Character::equip(AMateria* m){
 		std::cout << "Cannot equip that materia kys" << std::endl;
 		return;
 	}
+	if (m == NULL){
+//		std::cout << "This mf NULL" << std::endl;
+		return ;
+	}
+//	std::cout << "equipping materia" << std::endl;
 	inv[materia_count] = m;
 	materia_count++;
 }
@@ -64,6 +69,9 @@ void				Character::use(int idx, ICharacter& target){
 		std::cout << "Cannot use: only have 4 slots for Materias" << std::endl;
 		return;
 	}
+//	std::cout << materia_count << std::endl;
+	if (idx >= materia_count)
+		return ;
 	inv[idx]->use(target);
 	return ;
 }

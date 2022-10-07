@@ -14,7 +14,7 @@ class Character: public ICharacter{
 		int			materia_count;
 	public:
 		Character();
-		~Character();
+		virtual ~Character();
 		Character(Character const &);
 		Character(std::string const);
 

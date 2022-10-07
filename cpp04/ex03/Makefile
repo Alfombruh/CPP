@@ -1,6 +1,6 @@
 NAME = Interface
 CC = clang++
-CFLAGS = -Werror -Wall -Wextra -std=c++98 -fsanitize=address -g3
+CFLAGS = -Werror -Wall -Wextra -std=c++98 -g3 -fsanitize=address
 FILES = main \
 		AMateria \
 	   	Character \

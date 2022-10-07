@@ -1,19 +1,19 @@
 #include "AMateria.hpp"
 
 AMateria::AMateria(void){
-	std::cout << "AMateria Default Constructor Called" << std::endl;
+//	std::cout << "AMateria Default Constructor Called" << std::endl;
 }
 
 AMateria::~AMateria(void){
-	std::cout << "AMateria Default Destructor Called" << std::endl;
+///	std::cout << "AMateria Default Destructor Called" << std::endl;
 }
 
 AMateria::AMateria(AMateria const &r){
-	std::cout << "AMateria Copy Constructor Called" << std::endl;
+//	std::cout << "AMateria Copy Constructor Called" << std::endl;
 	*this = r;
 }
 AMateria::AMateria(std::string const &type): type(type){
-	std::cout << "AMateria Assignation Constructor Called" << std::endl;
+//	std::cout << "AMateria Assignation Constructor Called" << std::endl;
 }
 
 AMateria	&AMateria::operator=(AMateria const &r){

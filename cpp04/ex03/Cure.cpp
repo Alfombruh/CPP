@@ -1,16 +1,16 @@
 #include "Cure.hpp"
 
 Cure::Cure(void){
-	std::cout << "Cure Default Constructor Called" << std::endl;
+//	std::cout << "Cure Default Constructor Called" << std::endl;
 	type = "cure";
 }
 
 Cure::~Cure(void){
-	std::cout << "Cure Default Destructor Called" << std::endl;
+//	std::cout << "Cure Default Destructor Called" << std::endl;
 }
 
 Cure::Cure(Cure const &r){
-	std::cout << "Cure Copy Constructor Called" << std::endl;
+//	std::cout << "Cure Copy Constructor Called" << std::endl;
 	*this = r;
 }
 
