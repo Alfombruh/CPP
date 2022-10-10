@@ -18,7 +18,7 @@ Dog::Dog(Dog const &r){
 
 Dog	&Dog::operator=(Dog const &r){
 	this->type = r.type;
-	this->brain = r.brain;
+	this->brain = new Brain(*r.brain);
 	return *this;
 }
 

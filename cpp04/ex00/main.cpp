@@ -20,10 +20,10 @@ int main(){
 	const	WrongAnimal *i2 = new WrongCat();
 	const	WrongCat *j2 = new WrongCat();
 	std::cout << meta2->getType() << " " << std::endl;
-	std::cout << j2->getType() << " " << std::endl;
 	std::cout << i2->getType() << " " << std::endl;
-	i2->makeSound();
+	std::cout << j2->getType() << " " << std::endl;
 	j2->makeSound();
+	i2->makeSound();
 	meta2->makeSound();
 	delete i2;
 	delete j2;
