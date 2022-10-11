@@ -7,29 +7,29 @@
 class Bureaucrat{
 	private:
 		std::string const	name;
-		uint8_t 			grade;
+		int16_t 			grade;
 
 	public:
 		Bureaucrat();
 		~Bureaucrat();
 		Bureaucrat(Bureaucrat const &);
-		Bureaucrat(std::string name, uint8_t grade);
+		Bureaucrat(std::string name, int16_t grade);
 
 		Bureaucrat	&operator=(Bureaucrat const &);
 		class GradeToLowException: public std::exception{
 			public:
 				virtual const char *what()const throw(){
-					return "kys";
+					return "Bureaucrat Grade to High";
 				}
 		};
 		class GradeToHighException: public std::exception{
 			public:
 				virtual const char *what()const throw(){
-					return "kys2";
+					return "Bureaucrat grade to Low";
 				}
 		};
 		std::string	getName()const;
-		uint8_t	getGrade()const;
+		int16_t	getGrade()const;
 
 		void	IncrementGrade();
 		void	DecrementGrade();

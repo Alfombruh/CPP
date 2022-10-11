@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &r){
 	*this = r;
 }
 
-Bureaucrat::Bureaucrat(std::string name, uint8_t grade): name(name), grade(grade){
+Bureaucrat::Bureaucrat(std::string name, int16_t grade): name(name), grade(grade){
 	if (grade > 150)
 		throw Bureaucrat::GradeToHighException();
 	else if (grade < 1)
@@ -31,7 +31,7 @@ std::string	Bureaucrat::getName()const{
 	return	name;
 }
 
-uint8_t		Bureaucrat::getGrade()const{
+int16_t		Bureaucrat::getGrade()const{
 	return grade;
 }
 
