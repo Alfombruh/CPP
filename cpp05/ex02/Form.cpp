@@ -8,7 +8,7 @@ Form::~Form(void){
 	std::cout << "Form Default Destructor Called" << std::endl;
 }
 
-Form::Form(std::string const name, int16_t const grade): name(name), rGrade(grade), xGrade(0),signature(false){
+Form::Form(std::string const name, int16_t const grade, int16_t xgrade): name(name), rGrade(grade), xGrade(xgrade),signature(false){
 	if (rGrade < 1)
 		throw GradeToHighException();
 	else if (rGrade > 150)
@@ -34,6 +34,9 @@ std::string Form::getName(void)const{
 int16_t		Form::getGrade(void)const{
 	return rGrade;
 }
+int16_t		Form::getXGrade()const{
+	return xGrade;
+}
 
 bool		Form::getSignature(void)const{
 	return signature;
@@ -46,6 +49,12 @@ void	Form::signForm(const Bureaucrat &r){
 		throw Form::GradeToHighException();
 	else
 		signature = true;
+}
+
+void 	Form::execute(const Bureaucrat &executor)const{
+	executor.executeForm(*this);
+	std::cout << "Basic form was executed" << std::endl;
+	return ;
 }
 
 std::ostream &operator<<(std::ostream &o, Form const &rhs){

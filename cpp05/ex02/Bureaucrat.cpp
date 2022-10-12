@@ -49,6 +49,14 @@ void		Bureaucrat::DecrementGrade(){
 		grade += 1;
 }
 
+void		Bureaucrat::executeForm(const Form &form)const{
+	if (!form.getSignature())
+		throw Form::FormNotSignedException();
+	if (grade > form.getXGrade() || grade > form.getGrade())
+		throw Bureaucrat::GradeToLowException();
+	return ;
+}
+
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs){
 		o << rhs.getName() << " , bureaucrat grade " << rhs.getGrade();
 		return o;

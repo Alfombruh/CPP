@@ -1,8 +1,11 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <stdexcept>
 #include <iostream>
+
+class Form;
 
 class Bureaucrat{
 	private:
@@ -28,11 +31,13 @@ class Bureaucrat{
 					return "Bureaucrat grade to Low";
 				}
 		};
+
 		std::string	getName()const;
 		int16_t	getGrade()const;
 
 		void	IncrementGrade();
 		void	DecrementGrade();
+		void	executeForm(const Form &form)const;
 };
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs);
