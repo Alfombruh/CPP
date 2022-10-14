@@ -75,5 +75,16 @@ int main(){
 	std::cout << std::endl;
 	std::cout << "\e[1;91m-----------THIS FORM SHOUDL DISPLAY A GRADE TO HIGH ERROR-----------\033[0;0m" << std::endl;
 	std::cout << std::endl;
+	try{
+		Bureaucrat error4("Unqualified for the Job", 144);
+		Form	anexo("Anexo Territorial", 60);
+		anexo.signForm(error4);
+	}
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << "\e[1;91m-----------THIS FORM SHOUDL DISPLAY A GRADE TO HIGH ERROR-----------\033[0;0m" << std::endl;
+	std::cout << std::endl;
 	return 0;
 }

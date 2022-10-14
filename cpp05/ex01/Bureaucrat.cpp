@@ -15,9 +15,9 @@ Bureaucrat::Bureaucrat(Bureaucrat const &r){
 
 Bureaucrat::Bureaucrat(std::string name, int16_t grade): name(name), grade(grade){
 	if (grade > 150)
-		throw Bureaucrat::GradeToHighException();
+		throw Bureaucrat::GradeTooLowException();
 	else if (grade < 1)
-		throw Bureaucrat::GradeToLowException();
+		throw Bureaucrat::GradeTooHighException();
 	std::cout << "Bureaucrat Assignation Constructor Called" << std::endl;
 }
 
@@ -36,15 +36,15 @@ int16_t		Bureaucrat::getGrade()const{
 }
 
 void		Bureaucrat::IncrementGrade(){
-	if 	(1 - grade < 1)
-		throw Bureaucrat::GradeToHighException();
+	if 	(grade - 1 < 1)
+		throw Bureaucrat::GradeTooHighException();
 	else
 		grade -= 1;
 }
 
 void		Bureaucrat::DecrementGrade(){
 	if (1 + grade > 150)
-		throw Bureaucrat::GradeToLowException();
+		throw Bureaucrat::GradeTooLowException();
 	else
 		grade += 1;
 }

@@ -16,16 +16,16 @@ class Bureaucrat{
 		Bureaucrat(std::string name, int16_t grade);
 
 		Bureaucrat	&operator=(Bureaucrat const &);
-		class GradeToLowException: public std::exception{
+		class GradeTooLowException: public std::exception{
 			public:
 				virtual const char *what()const throw(){
-					return "Bureaucrat Grade to High";
+					return "Bureaucrat grade cannot go any lower";
 				}
 		};
-		class GradeToHighException: public std::exception{
+		class GradeTooHighException: public std::exception{
 			public:
 				virtual const char *what()const throw(){
-					return "Bureaucrat grade to Low";
+					return "Bureaucrat grade cannot go any higher";
 				}
 		};
 		std::string	getName()const;

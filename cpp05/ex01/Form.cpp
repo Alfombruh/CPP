@@ -10,9 +10,9 @@ Form::~Form(void){
 
 Form::Form(std::string const name, int16_t const grade): name(name), rGrade(grade), xGrade(0),signature(false){
 	if (rGrade < 1)
-		throw GradeToHighException();
+		throw Form::GradeTooHighException();
 	else if (rGrade > 150)
-		throw GradeToLowException();
+		throw Form::GradeTooLowException();
 	std::cout << "Form Assignation Constructor Called" << std::endl;
 }
 
@@ -41,9 +41,7 @@ bool		Form::getSignature(void)const{
 
 void	Form::signForm(const Bureaucrat &r){
 	if (rGrade < r.getGrade())
-		throw Form::GradeToLowException();
-	else if (rGrade > r.getGrade()) 
-		throw Form::GradeToHighException();
+		throw Form::UnqualifiedBureaucrat();
 	else
 		signature = true;
 }

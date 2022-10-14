@@ -36,6 +36,11 @@ class Form{
 				return "Bureaucrat is unqualified for the form";
 			}
 		};
+		class EmptyFormType: public std::exception{
+			virtual	const char *what() const throw(){
+				return "That form type does not exist";
+			}
+		};
 
 		std::string getName()const;
 		int16_t		getGrade()const;

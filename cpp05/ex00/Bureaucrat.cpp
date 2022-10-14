@@ -13,11 +13,11 @@ Bureaucrat::Bureaucrat(Bureaucrat const &r){
 	*this = r;
 }
 
-Bureaucrat::Bureaucrat(std::string name, uint8_t grade): name(name), grade(grade){
+Bureaucrat::Bureaucrat(std::string name, int16_t grade): name(name), grade(grade){
 	if (grade > 150)
-		throw Bureaucrat::GradeToHighException();
-	else if (grade < 1)
 		throw Bureaucrat::GradeToLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeToHighException();
 	std::cout << "Bureaucrat Assignation Constructor Called" << std::endl;
 }
 
@@ -31,12 +31,12 @@ std::string	Bureaucrat::getName()const{
 	return	name;
 }
 
-uint8_t		Bureaucrat::getGrade()const{
+int16_t		Bureaucrat::getGrade()const{
 	return grade;
 }
 
 void		Bureaucrat::IncrementGrade(){
-	if 	(1 - grade < 1)
+	if 	(grade - 1 < 1)
 		throw Bureaucrat::GradeToHighException();
 	else
 		grade -= 1;
@@ -50,6 +50,6 @@ void		Bureaucrat::DecrementGrade(){
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs){
-		o << rhs.getName() << " , bureaucrat grade " << rhs.getGrade();
+		o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 		return o;
 }

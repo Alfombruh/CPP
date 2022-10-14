@@ -19,14 +19,19 @@ class Form{
 
 		Form	&operator=(Form const &r);
 
-		class GradeToLowException: public std::exception{
+		class GradeTooLowException: public std::exception{
 			virtual const char *what() const throw(){
-				return "Bureaucrat grade to low to use Form";
+				return "Form's grade is too low (lowest: 150)";
 			}
 		};
-		class GradeToHighException: public std::exception{
+		class GradeTooHighException: public std::exception{
 			virtual const char *what() const throw(){
-				return "Bureaucrat grade to high to use Form";
+				return "Form's grade is too high (highest: 1)";
+			}
+		};
+		class UnqualifiedBureaucrat: public std::exception{
+			virtual	const char *what() const throw(){
+				return "Bureaucrat is unqualified for the form";
 			}
 		};
 

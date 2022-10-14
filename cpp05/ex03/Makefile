@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Intern
 CC = clang++
 CFLAGS = -Werror -Wall -Wextra -g3 -fsanitize=address
 FILES = Bureaucrat	\
@@ -6,6 +6,7 @@ FILES = Bureaucrat	\
 		ShrubberyCreationForm \
 		RobotomyRequestForm \
 		PresidentialPardonForm \
+		Intern	\
 		main
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))
@@ -13,6 +14,7 @@ INCLUDES = Bureaucrat.hpp \
 		   ShrubberyCreationForm.hpp \
 		   RobotomyRequestForm.hpp \
 		   PresidentialPardonForm.hpp \
+		   Intern.hpp	\
 		   Form.hpp
 
 all: $(NAME)

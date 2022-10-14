@@ -4,17 +4,54 @@ int main(){
 	try{
 		Bureaucrat test("Ion Mikel Romero", 150);
 	}
-	catch(Bureaucrat::GradeToLowException &e){
-		std::cout << "GradeToLowExepction" << std::endl;
-		return 1;
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
 	}
-	catch(Bureaucrat::GradeToHighException &e){
-		std::cout << "GradeToHighExepction" << std::endl;
-		return 1;
+	try{
+		Bureaucrat test2("Paco Ramon", 151);
 	}
 	catch (std::exception &e){
-		std::cout << "Another Exception" << std::endl;
-		return 1;
+		std::cout << e.what() << std::endl;
+	}
+	try{
+		Bureaucrat test3("Codere", 0);
+	}
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+	try{
+		Bureaucrat test4("Amancio Ortega", 1);
+	}
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+	try{
+		Bureaucrat Pili("La Pili", 150);
+		for (int i = 0; i < 30 ; i++){
+			std::cout << Pili << std::endl;
+			Pili.IncrementGrade();
+		}
+		for (int i = 0 ; i < 59 ; i++){
+			Pili.DecrementGrade();
+			std::cout << Pili << std::endl;
+		}
+	}
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+	try{
+		Bureaucrat Charlos("Charlos", 20);
+		for (int i = 0; i < 30 ; i++){
+			Charlos.DecrementGrade();
+			std::cout << Charlos << std::endl;
+		}
+		for (int i = 0 ; i < 59 ; i++){
+			Charlos.IncrementGrade();
+			std::cout << Charlos << std::endl;
+		}
+	}
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
 	}
 	return 0;
 }
