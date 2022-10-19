@@ -52,7 +52,7 @@ bool	Conversion::isFloat(){
 	if (str == "nanf" || str == "inff" || str == "-inff" || str == "+inff")
 		return true;
 	char	*endPtr = NULL;
-	if (str.back() == 'f')
+	if (str.back() == 'f' && str != "inf" && str != "-inf")
 		str.pop_back();
 	strtof(str.c_str(), &endPtr);
 	if (*endPtr)
@@ -116,6 +116,7 @@ void	Conversion::printInt(){
 	}
 	if (str.length() == 1 && !isdigit(str[0])){
 		std::cout << static_cast<int>(str[0]) << std::endl;
+		return ;
 	}
 	long	l;
 	char	*endPtr = NULL;

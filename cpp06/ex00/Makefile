@@ -24,4 +24,38 @@ fclean: clean
 
 re: fclean all
 
+test: $(NAME)
+	@echo ""
+	./Conversion 2147483647
+	@echo ""
+	./Conversion -2147483648
+	@echo ""
+	./Conversion 2147483648
+	@echo ""
+	./Conversion -2147483649
+	@echo ""
+	./Conversion 0
+	@echo ""
+	./Conversion 31
+	@echo ""
+	./Conversion 32
+	@echo ""
+	./Conversion 126
+	@echo ""
+	./Conversion 127
+	@echo ""
+	./Conversion nan
+	@echo ""
+	./Conversion nanf
+	@echo ""
+	./Conversion inf
+	@echo ""
+	./Conversion -inf
+	@echo ""
+	./Conversion inff
+	@echo ""
+	./Conversion -inff
+	@echo ""
+
+
 .PHONY: all clean fclean re

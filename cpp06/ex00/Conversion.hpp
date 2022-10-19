@@ -8,7 +8,6 @@ class Conversion{
 	private:
 		std::string str;
 		Conversion(); //So It cannot be initialized by anyone
-		~Conversion();
 		bool	isChar();
 		bool	isInt();
 		bool	isFloat();
@@ -19,6 +18,7 @@ class Conversion{
 		void	printDouble();
 
 	public:
+		~Conversion();
 		Conversion(Conversion const &);
 		Conversion(std::string const s);
 
