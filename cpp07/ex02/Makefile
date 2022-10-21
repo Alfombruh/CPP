@@ -1,10 +1,10 @@
-NAME = WhatEver
+NAME = Array
 CC = clang++
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wall -Wextra
 FILES = main	
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))
-INCLUDES = whatever.hpp \
+INCLUDES = Array.hpp
 
 all:$(NAME)
 
@@ -12,9 +12,9 @@ all:$(NAME)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS) $(INCLUDES)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
-clean: 
+clean:
 	rm -rf $(OBJS)
 
 fclean: clean
