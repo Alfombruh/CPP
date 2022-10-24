@@ -1,12 +1,12 @@
-NAME = Array
+NAME = EasyFind
 CC = clang++
-CFLAGS = -Werror -Wall -Wextra -g3 #-fsanitize=address 
-FILES = main	
+CFLAGS = -Werror -Wall -Wextra -g3 -fsanitize=address
+FILES = main
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))
-INCLUDES = Array.hpp
+INCLUDES = easyfind.hpp
 
-all:$(NAME)
+all: $(NAME)
 
 .cpp.o: $(SRCS)
 	$(CC) $(CFLAGS) -c $^ -o $@
@@ -14,11 +14,11 @@ all:$(NAME)
 $(NAME): $(OBJS) $(INCLUDES)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
 
-clean:
+clean: 
+	rm -rf *.dSYM
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf *.dSYM
 	rm -rf $(NAME)
 
 re: fclean all

@@ -1,6 +1,6 @@
 NAME = WhatEver
 CC = clang++
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -fsanitize=address
 FILES = main	
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))
