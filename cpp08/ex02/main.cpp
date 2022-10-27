@@ -30,11 +30,20 @@ int main(int argc, char** argv){
 		MutantStack<int> mstack;
 		srand(time(NULL));
 		int i = rand() % 100;
-		while (i-- > 0)
-			mstack.push(rand() % 100);
-		while(i++ < 100)
+		int temp = i;
+		if (i == 0)
+			return (1);
+		std::cout << "size is gonna be " << i << std::endl << "list	:";
+		while (i-- > 0){
+			int pijorrio = rand() % 100;
+			std::cout << pijorrio << ", ";
+			mstack.push(pijorrio);
+		}
+		std::cout << std::endl;
+		while(++i < temp){
 			if (rand() % 2 == 0)
 				mstack.pop();
+		}
 		MutantStack<int>::iterator it = mstack.begin();
 		MutantStack<int>::iterator ite = mstack.end();
 		std::cout << "List is: " << std::endl;
@@ -48,5 +57,34 @@ int main(int argc, char** argv){
 		std::cout << "k iterator value: " << k << std::endl;
 		std::cout << "Size Method Value: " << mstack.size() <<  std::endl;
 	}
+/*	if (argc == 3){
+		MutantStack<int> mstack;
+		srand(time(NULL));
+		int i = 1;
+		int temp = i;
+		std::cout << "size is gonna be " << i << std::endl << "list	:";
+		while (i-- > 0){
+			int pijorrio = rand() % 100;
+			std::cout << pijorrio << ", ";
+			mstack.push(pijorrio);
+		}
+		std::cout << std::endl;
+		while(++i < temp){
+			if (rand() % 2 == 0)
+				mstack.pop();
+		}
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		std::cout << "List is: " << std::endl;
+		int k = 0;
+		while (it != ite){
+			std::cout << *it << ", ";
+			++it;
+			k++;
+		}
+		std::cout << "FINISHED" << std::endl;
+		std::cout << "k iterator value: " << k << std::endl;
+		std::cout << "Size Method Value: " << mstack.size() <<  std::endl;
+	}*/
 	return 0;
 }

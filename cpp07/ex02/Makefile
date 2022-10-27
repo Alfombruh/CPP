@@ -1,6 +1,6 @@
 NAME = Array
 CC = clang++
-CFLAGS = -Werror -Wall -Wextra -g3 #-fsanitize=address 
+CFLAGS = -Werror -Wall -Wextra -g3 -fsanitize=address 
 FILES = main	
 SRCS = $(addsuffix .cpp,$(FILES))
 OBJS = $(addsuffix .o,$(FILES))

@@ -42,10 +42,24 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
-    for (int i = 0; i < MAX_VAL; i++)
+	try{
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			numbers[i] = rand();
+		}
+		std::cout << "should print this" << std::endl;
+	}
+    catch(const std::exception& e)
     {
-        numbers[i] = rand();
+        std::cerr << e.what() << '\n';
+    }
+	try{
+		Array<int> n(0);
+		std::cout << "array of empty size" << std::endl;
+	}
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
     }
     delete [] mirror;// 
     return 0;
