@@ -9,3 +9,5 @@ If you wanna see this in action go into te the /test/README.md
 
 Fixed point values hold great advantages: They a flexible in precision and range (depending on where you place the point), they are flexible in data size, they deal with some operations faster (+-...)...
 They obviously have some disadvantages but overall they are great
+
+[This video](https://www.youtube.com/watch?v=WJgLKO-qac0) explain pretty well what the problem with floats is 
