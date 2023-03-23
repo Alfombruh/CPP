@@ -55,9 +55,9 @@ void BitcoinExchange::readFile(string inputPath)
 			cout << "Error: bad input => " << key << "\n";
 			continue;
 		}
-		if (!closestDate(csvIt, key) && csvIt->first != key)
+		if (closestDate(csvIt, key) && csvIt->first != key)
 		{
-			cout << "Sabes que, por lo menos yo no soy un maricon!\n";
+			//cout << "Sabes que, por lo menos yo no soy un maricon!\n";
 			--csvIt;
 		}
 		if (value < 0)
