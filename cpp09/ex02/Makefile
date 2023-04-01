@@ -25,4 +25,7 @@ fclean: clean
 
 re: fclean all
 
+exe:
+	@./$(NAME) $$(jot -r 99 1 1000 | tr '\n' ' ')
+
 .PHONY: all clean fclean re

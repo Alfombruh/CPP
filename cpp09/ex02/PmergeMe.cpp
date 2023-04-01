@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 #include <limits>
+#include <algorithm>
 #include <sys/time.h>
 
 bool PmergeMe::parseArgs(char **argv)
@@ -21,11 +22,6 @@ void PmergeMe::printLists(string msg = NULL, string color = NULL)
 	cout << color;
 	cout << msg;
 	cout << "\tVector list: ";
-	if (lstVec.size() > 20)
-	{
-		cout << "\tBro, ain't gonna lie, the list too long you're better off without it\n";
-		return;
-	}
 	for (intVecIt itV = lstVec.begin(); itV != lstVec.end(); itV++)
 		cout << *itV << " ";
 	cout << "\n";
@@ -36,13 +32,30 @@ void PmergeMe::printLists(string msg = NULL, string color = NULL)
 	cout << CLOSE;
 };
 
-double timediff(struct timeval endTime, struct timeval startTime) { return ((endTime.tv_sec * 1000 + endTime.tv_usec / 1000) - (startTime.tv_sec * 1000 + startTime.tv_usec / 1000)); };
+double timediff(struct timeval endTime, struct timeval startTime) { return ((endTime.tv_sec * 1000.0 + endTime.tv_usec / 1000.0) - (startTime.tv_sec * 1000.0 + startTime.tv_usec / 1000.0)); };
 
-template <class T>
-void shortContainer(T container)
+template <class containerIte>
+void insetStor(containerIT first, containerIT last)
 {
-	container.size();
-	//shorts a x amount of integers
+	
+};
+
+template <class container, class containerIT>
+void mergeInsertShort(container &list, containerIT first, containerIT last)
+{
+	if (last - first == 1)
+	{
+		if (*first > *last)
+			std::iter_swap(first, last);
+		insertSort(first, last + 1);
+	}
+	else
+	{
+		containerIT middle = first + ((last - first) / 2);
+		mergeInsertShort(list, middle, last);
+		mergeInsertShort(list, first, middle);
+		std::inplace_merge(first, middle + 1, last + 1);
+	}
 	return;
 };
 
@@ -51,15 +64,15 @@ void PmergeMe::shortLists(void)
 	struct timeval vecStartTime, vecEndTime, deqStartTime, deqEndTime;
 	printLists("Before:\n", BHYEL);
 	gettimeofday(&vecStartTime, NULL);
-	shortContainer<intVec>(lstVec);
+	mergeInsertShort<intVec, intVecIt>(lstVec, lstVec.begin(), lstVec.end() - 1);
 	gettimeofday(&vecEndTime, NULL);
 	gettimeofday(&deqStartTime, NULL);
-	shortContainer<intDeque>(lstDeq);
+	mergeInsertShort<intDeque, intDequeIt>(lstDeq, lstDeq.begin(), lstDeq.end() - 1);
 	gettimeofday(&deqEndTime, NULL);
 	printLists("After:\n", BHGRN);
 	cout << "\n" << BHWHT;
-	cout << "Time to process a range of " << lstVec.size() << " with std::vector: " << timediff(vecEndTime, vecStartTime) << "\n";
-	cout << "Time to process a range of " << lstDeq.size() << " with std::deque: " << timediff(deqEndTime, deqStartTime) << "\n";
+	cout << "Time to process a range of " << lstVec.size() << " with std::vector: " << timediff(vecEndTime, vecStartTime) << "ms \n";
+	cout << "Time to process a range of " << lstDeq.size() << " with std::deque: " << timediff(deqEndTime, deqStartTime) << "ms \n";
 	cout << CLOSE;
 };
 
