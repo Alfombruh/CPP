@@ -34,12 +34,6 @@ void PmergeMe::printLists(string msg = NULL, string color = NULL)
 
 double timediff(struct timeval endTime, struct timeval startTime) { return ((endTime.tv_sec * 1000.0 + endTime.tv_usec / 1000.0) - (startTime.tv_sec * 1000.0 + startTime.tv_usec / 1000.0)); };
 
-template <class containerIte>
-void insetStor(containerIT first, containerIT last)
-{
-	
-};
-
 template <class container, class containerIT>
 void mergeInsertShort(container &list, containerIT first, containerIT last)
 {
@@ -47,7 +41,6 @@ void mergeInsertShort(container &list, containerIT first, containerIT last)
 	{
 		if (*first > *last)
 			std::iter_swap(first, last);
-		insertSort(first, last + 1);
 	}
 	else
 	{

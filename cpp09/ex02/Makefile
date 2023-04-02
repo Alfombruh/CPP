@@ -1,6 +1,6 @@
 NAME = PmergeMe
 CC = c++
-CFLAGS = -Werror -Wall -Wextra -MD -std=c++98 -fsanitize=address -g3
+CFLAGS = -Werror -Wall -Wextra -std=c++98 -fsanitize=address -g3
 FILES = main	\
 		PmergeMe	
 
