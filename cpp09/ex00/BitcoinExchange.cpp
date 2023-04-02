@@ -49,17 +49,13 @@ void BitcoinExchange::readFile(string inputPath)
 		key = line.substr(0, line.find('|') - 1);
 		value = strtod(line.substr(line.find('|') + 1, line.find('\n')).c_str(), NULL);
 		csvIt = values.lower_bound(key);
-		cout << "Closest date is: "<< csvIt->first << "\n"; 
 		if (strptime(key.c_str(), "%Y-%m-%d", &date) == NULL)
 		{
 			cout << "Error: bad input => " << key << "\n";
 			continue;
 		}
 		if (closestDate(csvIt, key) && csvIt->first != key)
-		{
-			//cout << "Sabes que, por lo menos yo no soy un maricon!\n";
 			--csvIt;
-		}
 		if (value < 0)
 			cout << "Error: not a positive number.\n";
 		else if (value >= 2147483647)

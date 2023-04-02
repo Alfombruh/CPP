@@ -24,7 +24,7 @@ fclean: clean
 
 re: fclean all
 
-exe: re 
+exe: all
 	./$(NAME) test.txt
 
 .PHONY: all clean fclean re exe
