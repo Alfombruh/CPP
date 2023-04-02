@@ -80,6 +80,7 @@ RPN::RPN(char *argv)
 	printStack(lst);
 	cout << "\n";
 };
+RPN::RPN(void) { return; };
 RPN::~RPN(void) { return; };
 RPN::RPN(RPN &r) { *this = r; };
 RPN &RPN::operator=(RPN &r)

@@ -22,6 +22,7 @@ class RPN{
 	private:
 		intStack lst;
 
+		RPN(void);
 	public:
 		RPN(char *argv);
 		~RPN(void);

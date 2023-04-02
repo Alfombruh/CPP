@@ -1,14 +1,13 @@
 #include "BitcoinExchange.hpp"
 
-
 void BitcoinExchange::getData(void)
 {
-	std::ifstream	dataFile("csv/data.csv");
-	string			line;
-	string			key;
-	float			value;
-	int 			i = 0;
-	while(getline(dataFile, line))
+	std::ifstream dataFile("csv/data.csv");
+	string line;
+	string key;
+	float value;
+	int i = 0;
+	while (getline(dataFile, line))
 	{
 		if (i++ == 0)
 			continue;
@@ -18,11 +17,11 @@ void BitcoinExchange::getData(void)
 	}
 }
 
-bool	closestDate(CSVIterator upperIt, string targetDate)
+bool closestDate(CSVIterator upperIt, string targetDate)
 {
 	CSVIterator lowerIt = --upperIt;
-	Date	upperDate = {}, lowerDate = {}, closestDate = {};
-	time_t	upperTimeDiff, lowerTimeDiff, closestTimeDiff;
+	Date upperDate = {}, lowerDate = {}, closestDate = {};
+	time_t upperTimeDiff, lowerTimeDiff, closestTimeDiff;
 
 	strptime(lowerIt->first.c_str(), "%Y-%m-%d", &lowerDate);
 	strptime(upperIt->first.c_str(), "%Y-%m-%d", &upperDate);
@@ -35,13 +34,13 @@ bool	closestDate(CSVIterator upperIt, string targetDate)
 
 void BitcoinExchange::readFile(string inputPath)
 {
-	string				line, key;
-	std::ifstream		inFile(inputPath);
-	double				value;
-	CSVMap::iterator	btc_value;
-	CSVIterator 		csvIt;
-	int					i = 0;
-	Date				date = {};
+	string line, key;
+	std::ifstream inFile(inputPath);
+	double value;
+	CSVMap::iterator btc_value;
+	CSVIterator csvIt;
+	int i = 0;
+	Date date = {};
 	while (getline(inFile, line))
 	{
 		if (i++ == 0)
@@ -63,24 +62,21 @@ void BitcoinExchange::readFile(string inputPath)
 		else
 			cout << key << " => " << value << " = " << csvIt->second * value << "\n";
 	}
-	return ;
+	return;
 }
 
 BitcoinExchange::BitcoinExchange(string inputPath)
 {
-	getData(); //TODO, error management
+	getData(); // TODO, error management
 	readFile(inputPath);
-	return ;
+	return;
 }
-BitcoinExchange::~BitcoinExchange()
-{
-	return ;
-}
-BitcoinExchange::BitcoinExchange(BitcoinExchange &r){
-	*this = r;
-}
+BitcoinExchange::BitcoinExchange() { return; }
+BitcoinExchange::~BitcoinExchange() { return; }
+BitcoinExchange::BitcoinExchange(BitcoinExchange &r) { *this = r; }
 
-BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange &r){
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange &r)
+{
 	values = r.values;
 	return *this;
 }

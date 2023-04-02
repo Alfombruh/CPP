@@ -29,6 +29,8 @@ class BitcoinExchange{
 
 		void	getData(void);
 		void	readFile(string inputPath);
+		BitcoinExchange();
+		
 	public:
 		BitcoinExchange(string inputPath);
 		~BitcoinExchange();
