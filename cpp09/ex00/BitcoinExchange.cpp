@@ -17,21 +17,6 @@ void BitcoinExchange::getData(void)
 	}
 }
 
-bool closestDate(CSVIterator upperIt, string targetDate)
-{
-	CSVIterator lowerIt = --upperIt;
-	Date upperDate = {}, lowerDate = {}, closestDate = {};
-	time_t upperTimeDiff, lowerTimeDiff, closestTimeDiff;
-
-	strptime(lowerIt->first.c_str(), "%Y-%m-%d", &lowerDate);
-	strptime(upperIt->first.c_str(), "%Y-%m-%d", &upperDate);
-	strptime(targetDate.c_str(), "%Y-%m-%d", &closestDate);
-	lowerTimeDiff = mktime(&lowerDate);
-	upperTimeDiff = mktime(&upperDate);
-	closestTimeDiff = mktime(&closestDate);
-	return (difftime(upperTimeDiff, closestTimeDiff) > difftime(closestTimeDiff, lowerTimeDiff));
-}
-
 void BitcoinExchange::readFile(string inputPath)
 {
 	string line, key;
@@ -53,11 +38,11 @@ void BitcoinExchange::readFile(string inputPath)
 			cout << "Error: bad input => " << key << "\n";
 			continue;
 		}
-		if (closestDate(csvIt, key) && csvIt->first != key)
+		if (csvIt->first != key)
 			--csvIt;
 		if (value < 0)
 			cout << "Error: not a positive number.\n";
-		else if (value >= 2147483647)
+		else if (value >= 1000)
 			cout << "Error: too large a number.\n";
 		else
 			cout << key << " => " << value << " = " << csvIt->second * value << "\n";
