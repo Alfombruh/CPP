@@ -12,7 +12,7 @@ void BitcoinExchange::getData(void)
 		if (i++ == 0)
 			continue;
 		key = line.substr(0, line.find(','));
-		value = strtof(line.substr(line.find(',') + 1, line.find('\n')).c_str(), NULL);
+		value = strtod(line.substr(line.find(',') + 1, line.find('\n')).c_str(), NULL);
 		values.insert(make_pair(key, value));
 	}
 }
