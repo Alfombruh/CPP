@@ -12,7 +12,7 @@ int errorMsg(std::string message)
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		return (errorMsg("Error: wrong args, just need a textfile"));
+		return (errorMsg("Error: could not open file."));
 	BitcoinExchange btc(argv[1]);
 	return (0);
 }
