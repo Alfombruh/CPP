@@ -20,7 +20,7 @@ int stackTopPop(intStack *lst)
 
 void sumStack(intStack *lst)
 {
-	if (lst->size() == 1)
+	if (lst->size() == 1 || lst->size() == 0)
 		throw RPN::classException("Error\n");
 	int i = stackTopPop(lst);
 	int j = stackTopPop(lst);
@@ -29,7 +29,7 @@ void sumStack(intStack *lst)
 
 void subStack(intStack *lst)
 {
-	if (lst->size() == 1)
+	if (lst->size() == 1 || lst->size() == 0)
 		throw RPN::classException("Error\n");
 	int i = stackTopPop(lst);
 	int j = stackTopPop(lst);
@@ -38,7 +38,7 @@ void subStack(intStack *lst)
 
 void mulStack(intStack *lst)
 {
-	if (lst->size() == 1)
+	if (lst->size() == 1 || lst->size() == 0)
 		throw RPN::classException("Error\n");
 	int i = stackTopPop(lst);
 	int j = stackTopPop(lst);
@@ -47,7 +47,7 @@ void mulStack(intStack *lst)
 
 void divStack(intStack *lst)
 {
-	if (lst->size() == 1)
+	if (lst->size() == 1 || lst->size() == 0)
 		throw RPN::classException("Error\n");
 	int i = stackTopPop(lst);
 	int j = stackTopPop(lst);
